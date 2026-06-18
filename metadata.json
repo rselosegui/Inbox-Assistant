@@ -1,0 +1,6 @@
+{
+  "name": "OpsCore - Email Intelligence",
+  "description": "Automated customer support email analyzer that classifies departments, assesses urgency, and drafts AI responses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

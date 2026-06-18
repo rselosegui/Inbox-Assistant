@@ -1,11 +1,40 @@
-<div align="center">
+# Customer Intelligence Core
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+An AI-powered customer support and operations intelligence platform that automatically analyzes incoming emails, extracts actionable insights, and generates draft responses using Google's Gemini models.
 
-  <h1>Built with AI Studio</h2>
+## Features
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Automated Analysis**: Categorizes emails by department, urgency, and sentiment.
+- **Auto-Response Generation**: Drafts responses in the customer's original language matching a specified tone.
+- **PII Redaction**: Automatically strips personally identifiable information from analysis and responses to maintain data privacy.
+- **Real-time Web Grounding**: Uses the latest web data to provide accurate and contextual responses.
+- **Configurable AI Models**: Configure different system settings to handle different inference strategies.
+- **Mock Integrations**: Built-in support for simulated bi-directional CRM syncing (Salesforce) and Slack workspace alerts.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Architecture
 
-</div>
+- **Frontend**: React 18, Vite, Tailwind CSS, Lucide React (Icons), and Motion (Animations).
+- **Backend**: Express.js server in Node.js.
+- **AI Integration**: Powered by the `@google/genai` SDK using Gemini models for robust text classification and response generation.
+
+## Getting Started
+
+1. Install all dependencies:
+\`\`\`bash
+npm install
+\`\`\`
+
+2. Define your environment variables (refer to `.env.example`):
+\`\`\`env
+GEMINI_API_KEY=your_gemini_api_key_here
+\`\`\`
+
+3. Run the development server:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+4. Build for production:
+\`\`\`bash
+npm run build
+\`\`\`
