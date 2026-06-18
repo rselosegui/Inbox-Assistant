@@ -16,22 +16,6 @@ An AI-powered customer support and operations intelligence platform that automat
 - **Frontend**: React 18, Vite, Tailwind CSS, Lucide React (Icons), and Motion (Animations).
 - **Backend**: Express.js server in Node.js.
 - **AI Integration**: Powered by the `@google/genai` SDK using Gemini models for robust text classification and response generation.
-
-## Getting Started
-
-1. Install all dependencies:
-\`\`\`bash
-npm install
-\`\`\`
-
-2. Define your environment variables (refer to `.env.example`):
-\`\`\`env
-GEMINI_API_KEY=your_gemini_api_key_here
-\`\`\`
-
-3. Run the development server:
-\`\`\`bash
-npm run dev
 \`\`\`
 
 4. Build for production:
