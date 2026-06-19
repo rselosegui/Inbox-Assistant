@@ -60,14 +60,14 @@ export default function SettingsPane({ config, setConfig, onPurgeHistory }: Sett
 
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="show" className="max-w-4xl mx-auto space-y-8 pb-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold font-display text-slate-800 tracking-tight">System Preferences</h2>
           <p className="text-sm text-slate-500 mt-1">Manage automations, security rules, and data retention.</p>
         </div>
         <button
           onClick={handleSave}
-          className={`px-6 py-3 rounded-2xl font-bold transition-all duration-300 text-sm shadow-sm flex items-center ${isSaved ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-200' : 'bg-violet-600 hover:bg-violet-500 text-white shadow-violet-200'}`}
+          className={`w-full md:w-auto justify-center px-6 py-3 rounded-2xl font-bold transition-all duration-300 text-sm shadow-sm flex items-center ${isSaved ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-200' : 'bg-violet-600 hover:bg-violet-500 text-white shadow-violet-200'}`}
         >
           {isSaved ? <CheckCircle2 className="w-5 h-5 mr-3" /> : <Save className="w-5 h-5 mr-3" />}
           {isSaved ? 'Preferences Saved' : 'Save Changes'}
@@ -77,7 +77,7 @@ export default function SettingsPane({ config, setConfig, onPurgeHistory }: Sett
       <div className="grid gap-6">
         
         {/* Automation Module */}
-        <motion.div variants={itemVariants} className="p-8 bg-white border border-slate-200 hover:border-violet-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
+        <motion.div variants={itemVariants} className="p-6 sm:p-8 bg-white border border-slate-200 hover:border-violet-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center space-x-4 text-slate-800 relative z-10">
             <div className="p-3 bg-violet-100 rounded-2xl">
@@ -124,7 +124,7 @@ export default function SettingsPane({ config, setConfig, onPurgeHistory }: Sett
         </motion.div>
 
         {/* Security Module */}
-        <motion.div variants={itemVariants} className="p-8 bg-white border border-slate-200 hover:border-emerald-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
+        <motion.div variants={itemVariants} className="p-6 sm:p-8 bg-white border border-slate-200 hover:border-emerald-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center space-x-4 text-slate-800 relative z-10">
             <div className="p-3 bg-emerald-100 rounded-2xl">
@@ -210,7 +210,7 @@ export default function SettingsPane({ config, setConfig, onPurgeHistory }: Sett
         </motion.div>
 
         {/* Knowledge Base */}
-        <motion.div variants={itemVariants} className="p-8 bg-white border border-slate-200 hover:border-indigo-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
+        <motion.div variants={itemVariants} className="p-6 sm:p-8 bg-white border border-slate-200 hover:border-indigo-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center space-x-4 text-slate-800 relative z-10">
             <div className="p-3 bg-indigo-100 rounded-2xl">
@@ -239,7 +239,7 @@ export default function SettingsPane({ config, setConfig, onPurgeHistory }: Sett
         </motion.div>
 
         {/* AI Intelligence Engine */}
-        <motion.div variants={itemVariants} className="p-8 bg-white border border-slate-200 hover:border-blue-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
+        <motion.div variants={itemVariants} className="p-6 sm:p-8 bg-white border border-slate-200 hover:border-blue-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center space-x-4 text-slate-800 relative z-10">
             <div className="p-3 bg-blue-100 rounded-2xl">
@@ -298,7 +298,7 @@ export default function SettingsPane({ config, setConfig, onPurgeHistory }: Sett
         </motion.div>
 
         {/* External Webhooks & Sync */}
-        <motion.div variants={itemVariants} className="p-8 bg-white border border-slate-200 hover:border-pink-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
+        <motion.div variants={itemVariants} className="p-6 sm:p-8 bg-white border border-slate-200 hover:border-pink-300 transition-colors rounded-3xl space-y-6 shadow-sm group relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center space-x-4 text-slate-800 relative z-10">
             <div className="p-3 bg-pink-100 rounded-2xl">

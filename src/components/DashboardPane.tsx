@@ -175,9 +175,9 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="show" className="space-y-6 pb-12">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <h2 className="text-2xl font-bold font-display text-slate-800 whitespace-nowrap">Dashboard</h2>
+        <h2 className="text-2xl font-bold font-display text-slate-800 whitespace-nowrap self-start md:self-auto">Dashboard</h2>
         
-        <div className="flex-1 max-w-xl mx-auto md:mx-4 flex items-center space-x-2">
+        <div className="flex-1 w-full max-w-xl mx-auto md:mx-4 flex flex-col md:flex-row items-stretch md:items-center space-y-2 md:space-y-0 md:space-x-2">
            <div className="relative flex-1 group">
               <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-violet-500 transition-colors" />
               <input 
@@ -189,36 +189,38 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
               />
            </div>
            
-           <div className="relative flex items-center space-x-2 bg-white border border-slate-200 rounded-2xl px-3 py-0.5 text-base text-slate-500 shadow-sm">
-              <Filter className="w-4 h-4 shrink-0 text-violet-500" />
-              <select 
-                 value={urgencyFilter}
-                 onChange={(e) => setUrgencyFilter(e.target.value)}
-                 className="bg-transparent border-none outline-none py-2 text-slate-700 font-medium cursor-pointer"
-              >
-                  <option value="all">Urgency: All</option>
-                  <option value="high">Urgency: High</option>
-                  <option value="medium">Urgency: Medium</option>
-                  <option value="low">Urgency: Low</option>
-              </select>
-           </div>
-           
-           <div className="relative hidden lg:flex items-center space-x-2 bg-white border border-slate-200 rounded-2xl px-3 py-0.5 text-base text-slate-500 shadow-sm">
-              <select 
-                 value={deptFilter}
-                 onChange={(e) => setDeptFilter(e.target.value)}
-                 className="bg-transparent border-none outline-none py-2 text-slate-700 font-medium cursor-pointer max-w-[120px]"
-              >
-                  <option value="all">Dept: All</option>
-                  <option value="technical_support">Tech Support</option>
-                  <option value="billing_and_finance">Billing</option>
-                  <option value="sales_and_partnerships">Sales</option>
-                  <option value="legal_and_compliance">Legal</option>
-              </select>
+           <div className="flex flex-row space-x-2 w-full md:w-auto">
+             <div className="flex-1 md:flex-none relative flex items-center space-x-2 bg-white border border-slate-200 rounded-2xl px-3 py-0.5 text-base text-slate-500 shadow-sm">
+                <Filter className="w-4 h-4 shrink-0 text-violet-500" />
+                <select 
+                   value={urgencyFilter}
+                   onChange={(e) => setUrgencyFilter(e.target.value)}
+                   className="bg-transparent border-none outline-none py-2 text-slate-700 font-medium cursor-pointer w-full text-sm sm:text-base"
+                >
+                    <option value="all">Urgency: All</option>
+                    <option value="high">Urgency: High</option>
+                    <option value="medium">Urgency: Medium</option>
+                    <option value="low">Urgency: Low</option>
+                </select>
+             </div>
+             
+             <div className="flex-1 md:flex-none relative flex items-center space-x-2 bg-white border border-slate-200 rounded-2xl px-3 py-0.5 text-base text-slate-500 shadow-sm md:hidden lg:flex">
+                <select 
+                   value={deptFilter}
+                   onChange={(e) => setDeptFilter(e.target.value)}
+                   className="bg-transparent border-none outline-none py-2 text-slate-700 font-medium cursor-pointer w-full max-w-full md:max-w-[120px] text-sm sm:text-base"
+                >
+                    <option value="all">Dept: All</option>
+                    <option value="technical_support">Tech Support</option>
+                    <option value="billing_and_finance">Billing</option>
+                    <option value="sales_and_partnerships">Sales</option>
+                    <option value="legal_and_compliance">Legal</option>
+                </select>
+             </div>
            </div>
         </div>
 
-        <div className="flex items-center space-x-3 shrink-0">
+        <div className="flex items-center justify-between w-full md:w-auto space-x-3 shrink-0 self-start md:self-auto">
             <button 
               onClick={handleExportCSV}
               className="text-sm font-bold text-violet-700 bg-violet-100 hover:bg-violet-200 px-4 py-2.5 rounded-xl transition-all flex items-center shadow-sm"
@@ -233,7 +235,7 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
 
       {/* Hero Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-6 rounded-3xl flex items-start justify-between shadow-sm hover:shadow-md transition-all overflow-hidden relative group">
+        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-4 sm:p-6 rounded-3xl flex items-start justify-between shadow-sm hover:shadow-md transition-all overflow-hidden relative group">
           <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative z-10">
             <p className="text-sm font-bold text-slate-500 tracking-wide uppercase mb-1">Total Processed</p>
@@ -244,7 +246,7 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
           </div>
         </motion.div>
         
-        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-6 rounded-3xl flex items-start justify-between shadow-sm hover:shadow-md transition-all overflow-hidden relative group">
+        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-4 sm:p-6 rounded-3xl flex items-start justify-between shadow-sm hover:shadow-md transition-all overflow-hidden relative group">
           <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative z-10">
             <p className="text-sm font-bold text-slate-500 tracking-wide uppercase mb-1">High Urgency Alerts</p>
@@ -255,7 +257,7 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-6 rounded-3xl flex items-start justify-between shadow-sm hover:shadow-md transition-all overflow-hidden relative group">
+        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-4 sm:p-6 rounded-3xl flex items-start justify-between shadow-sm hover:shadow-md transition-all overflow-hidden relative group">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative z-10">
             <p className="text-sm font-bold text-slate-500 tracking-wide uppercase mb-1">Avg Sentiment</p>
@@ -273,7 +275,7 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Pie schema */}
-        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-6 rounded-3xl min-h-[300px] flex flex-col shadow-sm">
+        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-4 sm:p-6 rounded-3xl min-h-[300px] flex flex-col shadow-sm">
           <h3 className="text-sm font-bold tracking-wide text-slate-500 uppercase mb-6 flex items-center"><Database className="w-4 h-4 mr-2" /> Department Routing</h3>
           <div className="flex-1 flex items-center justify-center">
             <ResponsiveContainer width="100%" height={250}>
@@ -308,7 +310,7 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
         </motion.div>
 
         {/* Bar schema */}
-        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-6 rounded-3xl min-h-[300px] flex flex-col shadow-sm">
+        <motion.div variants={itemVariants} className="bg-white border border-slate-200 p-4 sm:p-6 rounded-3xl min-h-[300px] flex flex-col shadow-sm">
           <h3 className="text-sm font-bold tracking-wide text-slate-500 uppercase mb-6 flex items-center"><AlertTriangle className="w-4 h-4 mr-2" /> Urgency Distribution</h3>
           <div className="flex-1">
              <ResponsiveContainer width="100%" height={250}>
@@ -333,7 +335,7 @@ export default function DashboardPane({ history }: DashboardPaneProps) {
 
       {/* History Log Table */}
       <motion.div variants={itemVariants} className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
-        <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+        <div className="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
            <h3 className="text-sm font-bold tracking-wide text-slate-500 uppercase flex items-center"><Layers className="w-4 h-4 mr-2" /> Recent Operations</h3>
         </div>
         <div className="overflow-x-auto custom-scrollbar">

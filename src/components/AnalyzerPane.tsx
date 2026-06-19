@@ -196,7 +196,7 @@ export default function AnalyzerPane({ onComplete, config }: AnalyzerPaneProps) 
         </div>
         
         <div 
-          className="relative flex-1 min-h-[450px]"
+          className="relative flex-1 min-h-[300px] md:min-h-[450px]"
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -205,7 +205,7 @@ export default function AnalyzerPane({ onComplete, config }: AnalyzerPaneProps) 
             value={emailText}
             onChange={(e) => setEmailText(e.target.value)}
             placeholder="Drop a customer email here, and let's see what we can do! ✨"
-            className={`w-full h-full min-h-[450px] p-8 bg-white border border-slate-200 rounded-3xl text-base text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-violet-500/10 focus:border-violet-300 resize-none transition-all shadow-sm ${isDragging ? 'bg-violet-50' : 'hover:bg-slate-50'}`}
+            className={`w-full h-full min-h-[300px] md:min-h-[450px] p-6 md:p-8 bg-white border border-slate-200 rounded-3xl text-base text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-violet-500/10 focus:border-violet-300 resize-none transition-all shadow-sm ${isDragging ? 'bg-violet-50' : 'hover:bg-slate-50'}`}
             disabled={isAnalyzing}
           />
           

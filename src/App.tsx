@@ -59,8 +59,8 @@ export default function App() {
       {/* Top Navigation */}
       <nav className="border-b border-slate-200/80 bg-white/80 backdrop-blur-xl px-4 md:px-8 py-4 z-10 sticky top-0 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center border border-violet-200 shadow-md shadow-violet-200/50">
+          <div className="flex items-center space-x-3 w-full md:w-auto">
+            <div className="w-12 h-12 shrink-0 rounded-2xl bg-violet-100 flex items-center justify-center border border-violet-200 shadow-md shadow-violet-200/50">
               <span className="text-2xl">✨</span>
             </div>
             <div>
@@ -69,10 +69,10 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center bg-slate-100 rounded-2xl p-1.5 border border-slate-200 shadow-inner">
+          <div className="flex items-center bg-slate-100 rounded-2xl p-1.5 border border-slate-200 shadow-inner w-full md:w-auto overflow-x-auto hide-scrollbar">
             <button
               onClick={() => setActiveTab('analyzer')}
-              className={`relative flex items-center space-x-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors z-10 ${
+              className={`relative flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors z-10 shrink-0 ${
                 activeTab === 'analyzer' 
                   ? 'text-violet-700' 
                   : 'text-slate-500 hover:text-slate-700'
@@ -86,7 +86,7 @@ export default function App() {
             </button>
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`relative flex items-center space-x-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors z-10 ${
+              className={`relative flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors z-10 shrink-0 ${
                 activeTab === 'dashboard' 
                   ? 'text-violet-700' 
                   : 'text-slate-500 hover:text-slate-700'
@@ -100,7 +100,7 @@ export default function App() {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`relative flex items-center space-x-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors z-10 ${
+              className={`relative flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors z-10 shrink-0 ${
                 activeTab === 'settings' 
                   ? 'text-violet-700' 
                   : 'text-slate-500 hover:text-slate-700'
@@ -154,6 +154,8 @@ export default function App() {
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(148, 163, 184, 0.5); border-radius: 10px; border: 2px solid #fafafc; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: rgba(100, 116, 139, 0.8); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />
     </div>
   );
